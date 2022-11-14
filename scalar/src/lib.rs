@@ -1,4 +1,4 @@
-pub fn summ(a: u8, b: u8) -> u8 {
+pub fn sum(a: u8, b: u8) -> u8 {
     return a + b;
 }
 
@@ -37,7 +37,7 @@ mod tests {
     }
     #[test]
     fn case1() {
-        let result = summ(1, 255);
+        let result = sum(1, 255);
         assert_eq!(result, 0);
     }
     #[test]
