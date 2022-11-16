@@ -8,6 +8,13 @@ fn main() {
     // we can change text
     // but can exist only one mut reference
     change(&mut s);
+
+    // few references of immutable var may exist
+    let r1 = &s;
+    let r2 = &s;
+    // but immutable and mutable references
+    // may not exist in one time
+    // let r3 = &mut s;
 }
 
 fn change(some_string: &mut String) {
