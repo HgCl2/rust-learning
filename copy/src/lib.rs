@@ -1,5 +1,13 @@
 pub fn nbr_function(c: i32) -> (i32, f64, f64) {
-    return (c, (c as f64).exp(), (c as f64).ln());
+    let log;
+
+    if c < 0{
+        log = -c;
+    }else{
+        log = c;
+    }
+
+    return (c, (c as f64).exp(), (log as f64).ln());
 }
 
 pub fn str_function(a: String) -> (String, String) {
@@ -33,9 +41,9 @@ mod tests {
 
     #[test]
     fn test_nbr_function() {
-        let a: i32 = 0;
+        let a: i32 = -12;
         let result = nbr_function(a);
-        let right = (0, 1.0, -f64::INFINITY);
+        let right = (-12, 6.14421235332821e-6, 2.4849066497880004);
         assert_eq!(result, right);
     }
 
