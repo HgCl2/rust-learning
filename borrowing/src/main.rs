@@ -15,6 +15,13 @@ fn main() {
     // but immutable and mutable references
     // may not exist in one time
     // let r3 = &mut s;
+    
+    // reference's scope starts from where it is introduced
+    // and continues through the last time reference is used
+    println!("{} and {}", r1, r2);
+
+    // after that we can make mutable reference
+    let r3 = &mut s;
 }
 
 fn change(some_string: &mut String) {
