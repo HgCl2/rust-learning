@@ -1,13 +1,3 @@
-pub fn min(a: usize, b: usize, c: usize) -> usize {
-    if a <= b && a <= c {
-        return a;
-    } else if b <= a && b <= c {
-        return b;
-    } else {
-        return c;
-    }
-}
-
 pub fn edit_distance(source: &str, target: &str) -> usize {
     let len_source = source.chars().count();
     let len_target = target.chars().count();
@@ -22,7 +12,8 @@ pub fn edit_distance(source: &str, target: &str) -> usize {
         DP[0][j] = j;
     }
 
-    let mut substitution_cost: usize = 0;
+    let mut substitution_cost: usize;
+
     for j in 1..=len_target {
         for i in 1..=len_source {
             if source.chars().nth(i) == target.chars().nth(j) {
@@ -31,10 +22,8 @@ pub fn edit_distance(source: &str, target: &str) -> usize {
                 substitution_cost = 1;
             }
 
-            DP[i][j] = min(
-                DP[i - 1][j] + 1,
-                DP[i][j - 1] + 1,
-                DP[i - 1][j - 1] + substitution_cost,
+            DP[i][j] = std::cmp::min(DP[i - 1][j] + 1,
+                std::cmp::min(DP[i][j - 1] + 1, DP[i - 1][j - 1] + substitution_cost)
             );
         }
     }
@@ -48,7 +37,7 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let result = edit_distance("saturday", "sunday");
+        let result = edit_distance("kitten", "sitting");
         assert_eq!(result, 3);
     }
 }
