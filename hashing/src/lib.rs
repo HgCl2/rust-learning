@@ -15,7 +15,7 @@ pub fn median(list: &Vec<i32>) -> i32 {
     let length = list.len();
 
     if length % 2 == 0 {
-        return list[length / 2] + list[length / 2 + 1];
+        return (list[length / 2 - 1] + list[length / 2]) / 2;
     } else {
         return list[length / 2];
     }
@@ -45,9 +45,9 @@ mod tests {
 
     #[test]
     fn it_works() {
-        let v = vec![4, 7, 5, 2, 5, 1, 3];
-        assert_eq!(mean(&v), 3.857142857142857);
-        assert_eq!(median(&v), 4);
-        assert_eq!(mode(&v), 5);
+        let v = vec![2, 1, 5, 2, 4];
+        assert_eq!(mean(&v), 14.0/5.0);
+        assert_eq!(median(&v), 2);
+        assert_eq!(mode(&v), 2);
     }
 }
