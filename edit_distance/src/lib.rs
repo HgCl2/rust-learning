@@ -4,18 +4,18 @@ pub fn edit_distance(source: &str, target: &str) -> usize {
 
     let mut dp: Vec<Vec<usize>> = vec![vec![0 as usize; len_target + 1]; len_source + 1];
 
-    for i in 1..=len_source{
+    for i in 1..(len_source+1){
         dp[i][0] = i;
     }
 
-    for j in 1..=len_target {
+    for j in 1..(len_target+1) {
         dp[0][j] = j;
     }
 
     let mut substitution_cost: usize;
     for j in 1..=len_target {
         for i in 1..=len_source {
-            if source.chars().nth(i) == target.chars().nth(j) {
+            if source.chars().nth(i-1).unwrap() == target.chars().nth(j-1).unwrap() {
                 substitution_cost = 0;
             } else {
                 substitution_cost = 1;
