@@ -1,6 +1,6 @@
 pub fn mean(list: &Vec<i32>) -> f64 {
     let mut res: f64 = 0.0;
-    for num in list{
+    for num in list {
         res += *num as f64;
     }
 
@@ -14,10 +14,10 @@ pub fn median(list: &Vec<i32>) -> i32 {
     list.sort();
     let length = list.len();
 
-    if length % 2 == 0{
-        return list[length/2] + list[length/2 + 1];
-    }else{
-        return list[length/2];
+    if length % 2 == 0 {
+        return list[length / 2] + list[length / 2 + 1];
+    } else {
+        return list[length / 2];
     }
 }
 
