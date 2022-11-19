@@ -1,4 +1,4 @@
-pub fn summ(a: [i32; 32]) -> i32 {
+pub fn sum(a: [i32; 32]) -> i32 {
     let mut res: i32 = 0;
 
     for num in a{
