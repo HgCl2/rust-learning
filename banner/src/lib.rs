@@ -4,9 +4,9 @@ use std::str::FromStr;
 
 #[derive(Eq, Clone, PartialEq, Debug)]
 pub struct Flag {
-    short_hand: String,
-    long_hand: String,
-    desc: String,
+    pub short_hand: String,
+    pub long_hand: String,
+    pub desc: String,
 }
 
 impl Flag {
