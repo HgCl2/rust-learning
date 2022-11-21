@@ -19,7 +19,7 @@ pub fn cipher(original: &str, ciphered: &str) -> Option<Result<bool, CipherError
     let mut right_cipher = String::new();
 
     if original.is_empty() {
-        return None;
+        return Option::None;
     }
 
     for ch in original.chars(){
