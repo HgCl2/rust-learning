@@ -10,9 +10,9 @@ pub fn open_or_create(file: &str, content: &str) {
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create(file) {
                 Ok(_created_file) => fs::write(file, content),
-                Err(err) => panic!("Problem creating the file: {:?}", err),
+                Err(err) => panic!("{:?}", err),
             },
-            other_error => panic!("Problem opening the file {:?}", other_error)
+            other_error => panic!("{:?}", other_error)
         }
     };
 }
