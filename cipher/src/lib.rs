@@ -18,7 +18,7 @@ impl CipherError {
 pub fn cipher(original: &str, ciphered: &str) -> Option<Result<bool, CipherError>> {
     let mut right_cipher = String::new();
 
-    if original.is_empty() {
+    if original.trim().is_empty() {
         return Option::None;
     }
 
@@ -56,6 +56,6 @@ mod tests {
         assert_eq!(res, Some(Err(CipherError { validation: false, expected: "1Svool 2dliow!".to_string() })));
 
         let res = cipher("", "svool");
-        assert_eq!(res, None);
+        assert_eq!(res, Option::None);
     }
 }
