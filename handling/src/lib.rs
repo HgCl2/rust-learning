@@ -6,10 +6,10 @@ pub fn open_or_create(file: &str, content: &str) {
     let opening_result = File::open(file);
 
     match opening_result {
-        Ok(_open_file) => fs::write(file, content),
+        Ok(_open_file) => fs::write(file, content).unwrap(),
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create(file) {
-                Ok(_created_file) => fs::write(file, content),
+                Ok(_created_file) => fs::write(file, content).unwrap(),
                 Err(err) => panic!("{}", err),
             },
             other_error => panic!("{}", other_error)
