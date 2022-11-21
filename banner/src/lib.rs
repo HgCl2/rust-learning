@@ -49,12 +49,12 @@ impl FlagsHandler {
 }
 
 pub fn div(a: &str, b: &str) -> Result<String, ParseFloatError> {
-    let first_num = match f64::from_str(a){
+    let first_num = match f32::from_str(a){
         Ok(val) => val,
         Err(e) => return Err(e),
     };
 
-    let second_num = match f64::from_str(b){
+    let second_num = match f32::from_str(b){
         Ok(val) => val,
         Err(e) => return Err(e),
     };
@@ -64,12 +64,12 @@ pub fn div(a: &str, b: &str) -> Result<String, ParseFloatError> {
     return Ok(result.to_string());
 }
 pub fn rem(a: &str, b: &str) -> Result<String, ParseFloatError> {
-    let first_num = match f64::from_str(a){
+    let first_num = match f32::from_str(a){
         Ok(val) => val,
         Err(e) => return Err(e),
     };
 
-    let second_num = match f64::from_str(b){
+    let second_num = match f32::from_str(b){
         Ok(val) => val,
         Err(e) => return Err(e),
     };
