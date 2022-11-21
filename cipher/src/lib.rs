@@ -18,7 +18,7 @@ impl CipherError {
 pub fn cipher(original: &str, ciphered: &str) -> Option<Result<bool, CipherError>> {
     let mut right_cipher = String::new();
 
-    if original.trim().is_empty() {
+    if original.trim().is_empty() || ciphered.trim().is_empty(){
         return Option::None;
     }
 
@@ -40,7 +40,7 @@ pub fn cipher(original: &str, ciphered: &str) -> Option<Result<bool, CipherError
         return Some(Err(CipherError { validation: (false), expected: (right_cipher) }));
     }
 
-    return Some(Result::Ok(true));
+    return Some(Ok(true));
 }
 
 #[cfg(test)]
