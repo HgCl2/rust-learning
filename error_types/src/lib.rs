@@ -1,4 +1,5 @@
-use chrono::NaiveDate;
+pub use chrono::NaiveDate;
+pub use chrono::Utc;
 
 #[derive(Debug, Eq, PartialEq)]
 pub struct FormError {
@@ -8,7 +9,7 @@ pub struct FormError {
 }
 impl FormError {
     pub fn new(field_name: String, field_value: String, err: String) -> FormError {
-        let date = chrono::offset::Local::now();
+        let date = Utc::now();
         let formatted = format!("{}", date.format("%Y-%m-%d %H:%M:%S"));
         FormError { 
             form_values: (field_name, field_value), 
