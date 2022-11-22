@@ -2,9 +2,11 @@ mod err;
 use err::{ ParseErr, ReadErr };
 
 use serde::{Deserialize, Serialize};
-use serde_json::{Result};
+//use serde_json::{Result};
 use std::fs::File;
+use std::io::Read;
 pub use std::error::Error;
+
 
 #[derive(Debug, Eq, PartialEq, Serialize, Deserialize)]
 pub struct Task {
@@ -22,11 +24,15 @@ pub struct TodoList {
 impl TodoList {
     pub fn get_todo(path: &str) -> Result<TodoList, Box<dyn Error>> {
         let file = File::open(path)?;
-        let data: &str;
-        file.read(data);
-        let json_value: TodoList = serde_json::from_str(data)?;
+        let mut data: String = String::new();
+        file.read_to_string(&mut data);
+        let json_value: TodoList = serde_json::from_str(&data)?;
 
-        return json_value;
+        if json_value.tasks.is_empty(){
+            return Err(Box::new(ParseErr::Empty));
+        }else{
+            Ok(json_value)
+        }
     }
 }
 

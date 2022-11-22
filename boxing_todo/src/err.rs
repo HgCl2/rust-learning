@@ -11,10 +11,7 @@ pub enum ParseErr {
 // required by error trait
 impl Display for ParseErr {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match self {
-            Self::Empty => write!(f, "Fail to read todo file"),
-            _ => write!(f, "Fail to parse todo"),
-        }
+        write!(f, "Fail to parse todo")
     }
 }
 
@@ -26,7 +23,6 @@ pub struct ReadErr {
 // required by error trait
 impl Display for ReadErr {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        // TO DO
         write!(f, "Fail to read todo file")
     }
 }
@@ -35,14 +31,16 @@ impl Error for ParseErr {
     fn source(&self) -> Option<&(dyn Error + 'static)> {
         match self {
             Self::Empty => None,
-            Self::Malformed(b) => None,
+            Self::Malformed(_) => Some(self),
         }
     }
 }
 
 impl Error for ReadErr {
     fn source(&self) -> Option<&(dyn Error + 'static)> {
-        // TO DO
-        return None;
+        match self.child_err{
+            None => return None,
+            return self.child_err
+        }
     }
 }
