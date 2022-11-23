@@ -39,9 +39,7 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
     let target: String = target_str.to_lowercase();
     let expected: String = expected_str.to_lowercase();
 
-    if target_str == expected_str{
-        return Some("100%".to_string());
-    }else if (!target.is_camel_lowercase() && target_str.to_camel().to_snake() != target) ||
+    if (!target.is_camel_lowercase() && target_str.to_camel().to_snake() != target) ||
         target_str.contains(['-', ' ']) || target_str == "" || expected_str == ""{
         return  None;
     }
