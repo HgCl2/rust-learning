@@ -1,6 +1,4 @@
-pub use case;
-pub use case::CaseExt;
-use snake_case::{self, is_snake_case};
+pub use inflector::Inflector;
 
 pub fn edit_distance(source: &str, target: &str) -> usize {
     let len_source = source.chars().count();
@@ -40,7 +38,7 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
     let target: String = target_str.to_lowercase();
     let expected: String = expected_str.to_lowercase();
 
-    if !target_str.is_camel_lowercase() && !is_snake_case(&target){
+    if !target_str.is_camel_case() && !target.is_snake_case(){
         return None;
     }
 
