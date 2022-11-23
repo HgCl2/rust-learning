@@ -39,8 +39,11 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
     let target: String = target_str.to_lowercase();
     let expected: String = expected_str.to_lowercase();
 
-    if !target.is_camel_lowercase() && target != target.to_snake(){
+    if !target.is_camel_lowercase() && target != target.to_snake() && 
+        target.contains(|c: char| c != '_' && c.is_ascii_punctuation()){
         return  None;
+    }else if target_str == expected_str{
+        return Some("100%".to_string());
     }
 
     let differ_chars = edit_distance(&target, &expected);    
@@ -65,5 +68,6 @@ mod tests {
         assert_eq!(expected_variable("soClose", "So_Close").unwrap(), "88%".to_string());
         assert_eq!(expected_variable("something", "something_completely_different"), None);
         assert_eq!(expected_variable("BenedictCumberbatch", "BeneficialCucumbersnatch").unwrap(), "67%".to_string());
+        assert_eq!(expected_variable("", ""), None);
     }
 }
