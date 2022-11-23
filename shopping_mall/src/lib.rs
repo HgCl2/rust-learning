@@ -44,6 +44,8 @@ pub fn nbr_of_employees(mall: mall::Mall) -> usize {
         }
     }
 
+    counter += mall.guards.len();
+
     return  counter;
 }
 
