@@ -41,9 +41,8 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
 
     if target_str == expected_str{
         return Some("100%".to_string());
-    }else if (!target.is_camel_lowercase() && target != target.to_snake()) ||
-        target.contains(|c: char| c != '_' && c == ' ' && c.is_ascii_punctuation()) ||
-        target_str == "" || expected_str == ""{
+    }else if (!target.is_camel_lowercase() && target_str.to_camel().to_snake() != target) ||
+        target_str.contains(['-', ' ']) || target_str == "" || expected_str == ""{
         return  None;
     }
 
