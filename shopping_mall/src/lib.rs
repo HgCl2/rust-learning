@@ -21,18 +21,21 @@ pub fn biggest_store(mall: mall::Mall) -> store::Store {
 }
 
 pub fn highest_paid_employee(mall: mall::Mall) -> Vec<store::employee::Employee> {
-    let mut highest_paid = store::employee::Employee::new("", 0, 0, 23, 0.0);
+    let mut highest_paid:Vec<store::employee::Employee> = Vec::new();
 
     for floor in mall.floors{
         for store in floor.stores{
             for employee in store.employees{
-                if employee.salary > highest_paid.salary{
-                    highest_paid = employee;
+                if highest_paid.len() == 0 || employee.salary == highest_paid[0].salary{
+                    highest_paid.push(employee);
+                }
+                else if employee.salary > highest_paid[0].salary{
+                    highest_paid[0] = employee;
                 }
             }
         }
     }
-    return vec![highest_paid];
+    return highest_paid;
 }
 
 pub fn nbr_of_employees(mall: mall::Mall) -> usize {
