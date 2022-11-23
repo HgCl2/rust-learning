@@ -1,5 +1,5 @@
 use chrono::Datelike;
-pub use chrono::{NaiveDate, Utc};
+pub use chrono::{NaiveDate, Utc, TimeZone};
 pub use chrono::Weekday as wd;
 
 pub fn middle_day(year: usize) -> Option<wd> {
