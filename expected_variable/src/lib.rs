@@ -1,4 +1,4 @@
-pub use inflector::Inflector;
+pub use regex;
 
 pub fn edit_distance(source: &str, target: &str) -> usize {
     let len_source = source.chars().count();
@@ -38,8 +38,11 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
     let target: String = target_str.to_lowercase();
     let expected: String = expected_str.to_lowercase();
 
-    if !target_str.is_camel_case() && !target.is_snake_case(){
-        return None;
+    let snake_case = regex::Regex::new("[a-zA-Z]+(_[a-zA-Z]+)*").unwrap();
+    let camel_case_lower = regex::Regex::new("[a-z]+(?:[A-Z0-9]+[a-z0-9]+[A-Za-z0-9]*)*").unwrap();
+
+    if !snake_case.is_match(&target) && camel_case_lower.is_match(target_str){
+        return  None;
     }
 
     let differ_chars = edit_distance(&target, &expected);    
