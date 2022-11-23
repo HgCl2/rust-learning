@@ -39,7 +39,7 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
     let target: String = target_str.to_lowercase();
     let expected: String = expected_str.to_lowercase();
 
-    if !target.is_camel_lowercase() && target != target.to_snake() && 
+    if !target_str.is_camel_lowercase() && target != target.to_snake() && 
         target.contains(|c: char| c != '_' && c != ' ' && c.is_ascii_punctuation()){
         return  None;
     }else if target_str == expected_str{
