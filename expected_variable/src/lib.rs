@@ -1,4 +1,5 @@
-pub use regex;
+pub use case;
+pub use case::CaseExt;
 
 pub fn edit_distance(source: &str, target: &str) -> usize {
     let len_source = source.chars().count();
@@ -38,10 +39,7 @@ pub fn expected_variable(target_str: &str, expected_str: &str) -> Option<String>
     let target: String = target_str.to_lowercase();
     let expected: String = expected_str.to_lowercase();
 
-    let snake_case = regex::Regex::new("[a-zA-Z]+(_[a-zA-Z]+)*").unwrap();
-    let camel_case_lower = regex::Regex::new("[a-z]+(?:[A-Z0-9]+[a-z0-9]+[A-Za-z0-9]*)*").unwrap();
-
-    if !snake_case.is_match(&target) && camel_case_lower.is_match(target_str){
+    if !target.is_camel_lowercase() && target != target.to_snake(){
         return  None;
     }
 
