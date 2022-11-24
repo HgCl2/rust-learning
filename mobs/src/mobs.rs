@@ -34,7 +34,7 @@ impl Mob {
             self.wealth += enemy.wealth;
             enemy.wealth = 0;
             self.cities.append(&mut enemy.cities);
-        }else{
+        }else if self.members.is_empty(){
             enemy.wealth += self.wealth;
             self.wealth = 0;
             enemy.cities.append(&mut self.cities);
