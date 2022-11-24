@@ -1,7 +1,7 @@
-pub mod mob;
-pub use crate::mob::member;
-pub use crate::mob::boss;
-pub use crate::mob::Mob;
+pub mod mobs;
+pub use crate::mobs::member;
+pub use crate::mobs::boss;
+pub use crate::mobs::Mob;
 
 pub fn add(left: usize, right: usize) -> usize {
     left + right
