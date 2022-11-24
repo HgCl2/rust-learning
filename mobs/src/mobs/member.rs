@@ -14,6 +14,10 @@ pub struct Member {
     pub age: u8,
 }
 
+pub fn new(name: &str, age: u8, role: Role) -> Member {
+    Member { name: name.to_string(), role, age }
+}
+
 impl Member {
     pub fn new(name: String, age: u8, role: Role) -> Member {
         Member { name, role, age }
