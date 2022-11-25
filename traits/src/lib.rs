@@ -1,4 +1,4 @@
-use std::fmt::Formatter;
+use std::fmt::{Formatter, write};
 
 #[derive(Debug)]
 pub struct Player {
@@ -25,7 +25,9 @@ impl Player {
 }
 
 impl std::fmt::Display for Player {
-    fn fmt(&self, _: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+        return write!(f, "{}\nStrength: {}, Score: {}, Money: {}\nWeapons: {:?}", 
+        self.name, self.strength, self.score, self.money, self.weapons);
     }
 }
 
