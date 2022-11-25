@@ -1,6 +1,3 @@
-pub fn (left: usize, right: usize) -> usize {
-    
-}
 
 #[derive(Debug)]
 pub struct Player {
