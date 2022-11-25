@@ -1,7 +1,8 @@
+use std::fmt::Formatter;
 
 #[derive(Debug)]
 pub struct Player {
-    pub name: f64,
+    pub name: String,
     pub strength: f64,
     pub score: i32,
     pub money: i32,
@@ -18,9 +19,14 @@ pub struct Meat {
 }
 
 impl Player {
-	fn eat<T>(&mut self, food: T) {
+	pub fn eat<T: Food>(&mut self, food: T) {
 		self.strength += food.gives();
 	}
+}
+
+impl std::fmt::Display for Player {
+    fn fmt(&self, _: &mut Formatter<'_>) -> Result<(), std::fmt::Error> {
+    }
 }
 
 pub trait Food {
