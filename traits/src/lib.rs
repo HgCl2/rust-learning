@@ -31,11 +31,15 @@ pub trait Food {
 }
 
 impl Food for Fruit {
-    
+    fn gives(&self) -> f64{
+        return self.weight_in_kg * 4.0;
+    }
 }
 
 impl Food for Meat {
-
+    fn gives(&self) -> f64{
+        return (self.weight_in_kg - self.fat_content) * 4.0 + self.fat_content * 9.0;
+    }
 }
 
 #[cfg(test)]
