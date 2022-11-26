@@ -1,4 +1,4 @@
-use std::{ops::{Add, Sub, Div, Mul}, result};
+use std::ops::{Add, Sub, Div, Mul};
 
 pub trait Scalar: Add + Sub + Div + Mul + Sized{
 	type Item;
@@ -72,7 +72,7 @@ impl Scalar for u32 {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Matrix<T>(pub Vec<Vec<T>>);
 
 impl <T: Scalar<Item = T> + std::clone::Clone> Matrix<T> {
