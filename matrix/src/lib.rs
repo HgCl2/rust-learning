@@ -86,8 +86,8 @@ impl <T: Scalar<Item = T> + std::clone::Clone> Matrix<T> {
 
 	pub fn identity(n: usize) -> Matrix<T> {
         let mut result = Matrix::zero(n, n);
-        for _ in 0..n{
-            result.0[n][n] = T::one();
+        for i in 0..n{
+            result.0[i][i] = T::one();
         }
 
         return result;
