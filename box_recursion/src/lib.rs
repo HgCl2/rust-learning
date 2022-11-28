@@ -60,7 +60,7 @@ impl WorkEnvironment {
             return None;
         }
 
-        return Some((self.grade.clone().unwrap().name, self.grade.clone().unwrap().name));
+        return Some((self.grade.clone().unwrap().name, self.grade.clone().unwrap().role));
     }
 }
 
