@@ -22,6 +22,7 @@ impl Node {
 }
 
 pub fn how_many_references(ref_list: &Rc<String>) -> usize {
+    eprintln!("{}", ref_list);
     return Rc::strong_count(ref_list);
 }
 
