@@ -15,7 +15,7 @@ impl Node {
         let twin = self.ref_list.clone();
         let mut result: Vec<Rc<String>> = Vec::new();
         for ind in 0..twin.len(){
-            if twin[ind].eq(&element){
+            if !twin[ind].eq(&element){
                 result.push(twin[ind].clone());
             }
         }
