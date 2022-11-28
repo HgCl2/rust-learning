@@ -12,6 +12,7 @@ impl Node {
         self.ref_list.push(element);
     }
     pub fn rm_all_ref(&mut self, element: Rc<String>) {
+        eprintln!("{}", element);
         let twin = self.ref_list.clone();
         for ind in (0..twin.len()).rev(){
             if twin[ind] == element{
@@ -22,7 +23,6 @@ impl Node {
 }
 
 pub fn how_many_references(ref_list: &Rc<String>) -> usize {
-    eprintln!("{}", ref_list);
     return Rc::strong_count(ref_list);
 }
 
