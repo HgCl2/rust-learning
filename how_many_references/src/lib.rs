@@ -12,10 +12,9 @@ impl Node {
         self.ref_list.push(element);
     }
     pub fn rm_all_ref(&mut self, element: Rc<String>) {
-        eprintln!("{:?}", self.ref_list);
         let twin = self.ref_list.clone();
         for ind in (0..twin.len()).rev(){
-            if twin[ind] == element{
+            if *twin[ind] == *element{
                 self.ref_list.remove(ind);
             }
         }
