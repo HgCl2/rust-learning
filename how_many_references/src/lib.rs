@@ -14,7 +14,7 @@ impl Node {
     pub fn rm_all_ref(&mut self, element: Rc<String>) {
         let twin = self.ref_list.clone();
         for ind in (0..twin.len()).rev(){
-            if *twin[ind] == *element{
+            if twin[ind].eq(&element){
                 self.ref_list.remove(ind);
             }
         }
