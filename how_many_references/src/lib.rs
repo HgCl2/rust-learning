@@ -12,6 +12,7 @@ impl Node {
         self.ref_list.push(element);
     }
     pub fn rm_all_ref(&mut self, element: Rc<String>) {
+        eprintln!("{:?}", self.ref_list);
         let twin = self.ref_list.clone();
         while self.ref_list.contains(&element){
             let index = twin.iter().position(|x| *x == element).unwrap();
