@@ -53,7 +53,7 @@ impl <'a>Numbers <'_>{
             }
         }
 
-        while result[result.len() - 1] == 0{
+        while !result.is_empty() && result[result.len() - 1] == 0{
             result.pop();
         }
         return result;
