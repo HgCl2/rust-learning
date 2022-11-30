@@ -6,16 +6,18 @@ pub struct Collatz {
 impl Iterator for Collatz {
     type Item = u64;
     fn next(&mut self) -> Option<Self::Item> {
-        if self.v == 0{
+        if self.v == 0 || self.v == 1{
             return None;
         }
         if self.v % 2 == 0{
-            self.v /= 2;
+            self.v = self.v / 2;
+            return Some(self.v * 2);
         }else {
             self.v = self.v * 3 + 1;
+            return Some((self.v - 1) / 3);
         }
 
-        return Some(self.v);
+       
     }
     
 }
