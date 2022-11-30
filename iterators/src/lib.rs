@@ -36,12 +36,8 @@ pub fn collatz(n: u64) -> usize {
 
     let mut counter = 0;
     let mut collatz_strt = Collatz::new(n);
-    while collatz_strt.v != 1 {
-        counter += 1;
-        collatz_strt.next();
-    }
 
-    return counter;
+    return collatz_strt.count();
 }
 
 #[cfg(test)]
