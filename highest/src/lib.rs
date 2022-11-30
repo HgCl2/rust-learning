@@ -39,7 +39,7 @@ impl <'a>Numbers <'_>{
 
     pub fn highest_three(&self) -> Vec<u32> {
         let mut result: Vec<u32> = vec![0, 0, 0];
-        
+
         for num in self.numbers{
             if *num > result[0]{
                 result[2] = result[1];
@@ -53,6 +53,9 @@ impl <'a>Numbers <'_>{
             }
         }
 
+        while result[result.len() - 1] == 0{
+            result.pop();
+        }
         return result;
     }
 }
