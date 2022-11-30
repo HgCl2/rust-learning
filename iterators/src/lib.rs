@@ -6,9 +6,10 @@ pub struct Collatz {
 impl Iterator for Collatz {
     type Item = Collatz;
     fn next(&mut self) -> Option<Self::Item> {
-        if self.v == 0 || self.v == 1{
+        if self.v == 0{
             return None;
-        }else {
+        }else{
+            self.v -= 1;
             Some(*self)
         }
     }
