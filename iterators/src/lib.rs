@@ -8,8 +8,9 @@ impl Iterator for Collatz {
     fn next(&mut self) -> Option<Self::Item> {
         if self.v == 0 || self.v == 1{
             return None;
-        }else{
-            return Some(*self);
+        }else {
+            self.v -= 1;
+            Some(*self)
         }
     }
 
