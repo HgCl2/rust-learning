@@ -9,7 +9,7 @@ impl Iterator for Collatz {
         if self.v == 0 || self.v == 1{
             return None;
         }else {
-            self.v -= 1;
+            self.v += 1;
             Some(*self)
         }
     }
