@@ -29,6 +29,7 @@ impl Collatz {
 }
 
 pub fn collatz(n: u64) -> usize {
+    println!("{}", n);
     if n == 0{
         return 0;
     }
