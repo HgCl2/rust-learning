@@ -6,7 +6,7 @@ pub struct Collatz {
 impl Iterator for Collatz {
     type Item = Collatz;
     fn next(&mut self) -> Option<Self::Item> {
-        if self.v == u64::MAX || self.v == u64::MIN{
+        if self.v == u64::MAX || self.v == u64::MIN+1{
             return None;
         }else {
             self.v -= 1;
