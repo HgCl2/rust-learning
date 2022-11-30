@@ -8,8 +8,11 @@ impl Iterator for Collatz {
     fn next(&mut self) -> Option<Self::Item> {
         if self.v == 0{
             return None;
-        }else{
-            self.v -= 1;
+        }else if self.v % 2 == 0{
+            self.v /= 2;
+            Some(*self)
+        }else {
+            self.v = self.v * 3 + 1;
             Some(*self)
         }
     }
