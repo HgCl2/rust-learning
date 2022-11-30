@@ -6,6 +6,9 @@ pub struct Collatz {
 impl Iterator for Collatz {
     type Item = u64;
     fn next(&mut self) -> Option<Self::Item> {
+        if self.v == 0{
+            return None;
+        }
         if self.v % 2 == 0{
             self.v /= 2;
         }else {
@@ -36,4 +39,14 @@ pub fn collatz(n: u64) -> usize {
     }
 
     return counter;
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_works() {
+        
+    }
 }
