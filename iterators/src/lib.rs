@@ -13,7 +13,7 @@ impl Iterator for Collatz {
             Some(Collatz::new(self.v * 2))
         }else {
             self.v = self.v * 3 + 1;
-            Some(Collatz::new((self.v - 1) * 3))
+            Some(Collatz::new((self.v - 1) / 3))
         }
     }
 }
