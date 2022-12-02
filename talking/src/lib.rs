@@ -1,11 +1,13 @@
 pub fn talking(text: &str) -> &str {
-    if text == ""{
+    let trimmed_text = text.trim();
+    if trimmed_text == ""{
         return "Just say something!";
     }
-    
-    let last_char = text.chars().nth(text.len()-1).unwrap();
 
-    if text == text.to_uppercase(){
+    let last_char = trimmed_text.chars().nth(trimmed_text.len()-1).unwrap();
+
+    if trimmed_text == trimmed_text.to_uppercase() && 
+    trimmed_text.len() != 1{
         if last_char == '?'{
             return "Quiet, I am thinking!";
         }
