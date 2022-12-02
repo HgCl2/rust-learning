@@ -3,11 +3,11 @@ pub fn num_to_ordinal(x: u32) -> String {
 
     let last_digit = x % 10;
 
-    if last_digit == 1{
+    if last_digit == 1 && x != 11{
         result.push_str("st");
-    }else if last_digit == 2{
+    }else if last_digit == 2 && x != 12{
         result.push_str("nd");
-    }else if last_digit == 3{
+    }else if last_digit == 3 && x != 13{
         result.push_str("rd");
     }else {
         result.push_str("th");
