@@ -1,4 +1,5 @@
 pub fn talking(text: &str) -> &str {
+    eprintln!("{}", text);
     let trimmed_text = text.trim();
     if trimmed_text == ""{
         return "Just say something!";
