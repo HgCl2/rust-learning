@@ -1,14 +1,13 @@
-const VOWELS: [char; 12] = ['A', 'a', 'E', 'e', 
-    'O', 'o', 'I', 'i', 
-    'U', 'u', 'Y', 'y'];
+const VOWELS: [char; 10] = ['A', 'a', 'E', 'e', 
+    'O', 'o', 'I', 'i', 'U', 'u'];
 
-const CONSONANTS: [char; 40] = ['Q', 'q', 'W', 'w', 
+const CONSONANTS: [char; 42] = ['Q', 'q', 'W', 'w', 
     'R', 'r', 'T', 't', 'P', 'p', 
     'S', 's', 'D', 'd', 'F', 'f', 
     'G', 'g', 'H', 'h', 'J', 'j', 
     'K', 'k', 'L', 'l', 'M', 'm',
     'N', 'n', 'B', 'b', 'V', 'v', 
-    'C', 'c', 'X', 'x', 'Z', 'z'];
+    'C', 'c', 'X', 'x', 'Z', 'z', 'Y', 'y'];
 
 
 pub fn pig_latin(text: &str) -> String {
