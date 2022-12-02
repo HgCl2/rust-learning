@@ -22,6 +22,7 @@ pub fn get_diamond(c: char) -> Vec<String> {
             elem.push(letter);
         }
         
+        elem.push_str(&" ".repeat(space_before));
 
         result.push(elem);
     }
@@ -41,6 +42,7 @@ pub fn get_diamond(c: char) -> Vec<String> {
             elem.push(letter);
         }
         
+        elem.push_str(&" ".repeat(space_before));
 
         result.push(elem);
     }
